@@ -26,7 +26,9 @@ module JIRA
         # Set filename if none set by caller
         body['filename'] ||= File.basename body['content']
 
-        request = Net::HTTP::Post::Multipart.new(path, { 'file' => UploadIO.new(body['content'], body['type'], body['filename']) }, headers)
+        io = open(body['content'])
+
+        request = Net::HTTP::Post::Multipart.new(path, { 'file' => UploadIO.new(io, body['type'], body['filename']) }, headers)
       else
         request = Net::HTTP.const_get(http_method.to_s.capitalize).new(path, headers)
         request.body = body unless body.nil?
