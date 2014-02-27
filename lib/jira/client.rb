@@ -62,6 +62,8 @@ module JIRA
         @consumer = @request_client.consumer
       when :basic
         @request_client = HttpClient.new(@options)
+      when :request_params
+        @request_client = HttpReqParamsClient.new(@options)
       end
 
       @options.freeze

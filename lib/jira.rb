@@ -25,6 +25,7 @@ require 'jira/resource/issue'
 require 'jira/request_client'
 require 'jira/oauth_client'
 require 'jira/http_client'
+require 'jira/http_req_params_client'
 require 'jira/client'
 
 require 'jira/railtie' if defined?(Rails)

@@ -3,7 +3,7 @@ require 'net/https'
 require 'net/http/post/multipart'
 
 module JIRA
-  class HttpClient < RequestClient
+  class HttpReqParamsClient < RequestClient
 
     DEFAULT_OPTIONS = {
       :username           => '',
